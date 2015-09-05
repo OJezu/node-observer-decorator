@@ -1,0 +1,10 @@
+instrumentation:
+    default-excludes: true
+    excludes: ["tools"]
+    preserve-comments: true
+reporting:
+  watermarks:
+    statements: [75, 100]
+    lines: [75, 100]
+    functions: [75, 100]
+    branches: [90, 100]

@@ -1,0 +1,26 @@
+{
+  "name": "observer-decorator",
+  "version": "0.1.0",
+  "description": "Exports an function that can turn any object into observable object!",
+  "main": "src/observer-decorator.js",
+  "scripts": {
+    "postinstall": "( [ -d .git ] && for i in tools/git-hooks/*; do cp -n \"tools/git-hooks/$(basename \"$i\")\" \".git/hooks/$(basename \"$i\")\"; done) || exit 0",
+    "_coverage": "rm -rf ./coverage && ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --include-all-sources --print none -- -R spec --recursive",
+    "coverage": "npm run-script _coverage && ( nohup xdg-open './coverage/lcov-report/index.html' > /dev/null || ./node_modules/istanbul/lib/cli.js report text)",
+    "coverage-text": "npm run-script _coverage && ./node_modules/istanbul/lib/cli.js report text",
+    "test": "./node_modules/jshint/bin/jshint .  && ./node_modules/jscs/bin/jscs . && npm run-script _coverage && ./node_modules/istanbul/lib/cli.js report text "
+  },
+  "author": "Christopher Chrapka",
+  "license": "MIT",
+  "dependencies": {
+    "when": "^3.7.3"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
+    "istanbul": "*",
+    "jscs": "*",
+    "jshint": "*",
+    "mocha": "^2.2.5"
+  }
+}
